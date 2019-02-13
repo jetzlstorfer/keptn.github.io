@@ -1,7 +1,6 @@
 #!/usr/bin/env sh
 set -e
 
-mkdir -p static/css static/js static/img
 mkdir -p generated/css generated/js generated/img
 
 npx sass src/sass/keptn_theme.scss keptn_theme.css -s compressed

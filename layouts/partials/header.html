@@ -1,46 +1,47 @@
 {{ $posts := (where .Site.Pages "Section" "blog").ByPublishDate.Reverse }}
 {{ $latest_post := index $posts 0 }}
 
+
 <header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark justify-content-between">
-        {{ $home := .Site.GetPage "home" }}
+        <div class="container">
+            {{ $home := .Site.GetPage "home" }}
 
-        <a class="navbar-brand" href="{{ $home.Permalink }}">
-            <span class="logo"></span>
-            <span class="brand-name">Keptn {{ .Site.Data.args.version }}</span>
-        </a>
+            <a class="navbar-brand" href="{{ $home.Permalink }}">
+                <span class="logo"><img alt="" src="/images/logo.svg" /></span>
+                <span class="brand-name">Keptn {{ .Site.Data.args.version }}</span>
+            </a>
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        {{ $section := .Section }}
-        <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
-            <ul id="navbar-links" class="navbar-nav active">
-                {{ with (.Site.GetPage "section" "docs") }}
+            {{ $section := .Section }}
+            <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+                <ul id="navbar-links" class="navbar-nav active">
+                    {{ with (.Site.GetPage "section" "docs") }}
                     <li class="nav-item">
                         <a class="nav-link {{ if eq $section "docs" }}active{{ end }}" title="{{ .Description }}" href="{{ .Permalink  }}">{{ .LinkTitle }}</a>
                     </li>
-                {{ end }}
-                {{ with $latest_post }}
+                    {{ end }}
+                    {{ with $latest_post }}
                     <li class="nav-item">
                         {{ $blog_home := .Site.GetPage "section" "blog" }}
                         <a class="nav-link {{ if eq $section "blog" }}active{{ end }}" title="{{ $blog_home.Description }}" href="{{ .Permalink }}">{{ $blog_home.LinkTitle }}</a>
                     </li>
-                {{ end }}
-                {{ with (.Site.GetPage "section" "help") }}
+                    {{ end }}
+                    {{ with (.Site.GetPage "section" "help") }}
                     <li class="nav-item">
                         <a class="nav-link {{ if eq $section "help" }}active{{ end }}" title="{{ .Description }}" href="{{ .Permalink }}">{{ .LinkTitle }}</a>
                     </li>
-                {{ end }}
-                {{ with (.Site.GetPage "section" "about") }}
+                    {{ end }}
+                    {{ with (.Site.GetPage "section" "about") }}
                     <li class="nav-item">
                         <a class="nav-link {{ if eq $section "about" }}active{{ end }}" title="{{ .Description }}" href="{{ .Permalink  }}">{{ .LinkTitle }}</a>
                     </li>
-                {{ end }}
-            </ul>
-
-
+                    {{ end }}
+                </ul>
+            </div>
         </div>
     </nav>
 </header>
