@@ -1,7 +1,18 @@
-baseURL = "https://keptn.sh/"
+defaultContentLanguage = "en"
 languageCode = "en-us"
-title = "keptn"
-theme = "hugo-serif-theme"
+metaDataFormat = "yaml"
+title = "Keptn"
+uglyURLs = false
+enableRobotsTXT = true
+pluralizeListTitles = false
+canonifyURLs = true
+disableKinds = ["taxonomy", "taxonomyTerm"]
+anchor = "smart"
+enableGitInfo = true
+enableEmoji = true
+buildFuture = true
+ignoreFiles = [ "OWNERS" ]
+staticDir = ["static", "generated"]
 
 [params]
     google_analytics_id="UA-133584243-1"

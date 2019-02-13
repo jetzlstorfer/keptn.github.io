@@ -1,0 +1,13 @@
+.link-endnotes {
+    display: none;
+
+    @media print {
+        display: block;
+    }
+}
+
+@media screen {
+    .endnote-ref {
+        display: none;
+    }
+}
