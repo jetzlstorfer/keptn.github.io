@@ -14,16 +14,6 @@ buildFuture = true
 ignoreFiles = [ "OWNERS" ]
 staticDir = ["static", "generated"]
 
-# MARKDOWN
-## Configuration for BlackFriday markdown parser: https://github.com/russross/blackfriday
-[blackfriday]
-	plainIDAnchors = true
-    # See https://github.com/gohugoio/hugo/issues/2424
-	hrefTargetBlank = false
-    angledQuotes = false
-    latexDashes = true
-    extensions = [""]
-
 [outputs]
   home = ["HTML", "RSS"]
   section = ["HTML"]

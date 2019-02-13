@@ -38,53 +38,9 @@
                         <a class="nav-link {{ if eq $section "about" }}active{{ end }}" title="{{ .Description }}" href="{{ .Permalink  }}">{{ .LinkTitle }}</a>
                     </li>
                 {{ end }}
-
-                <li class="nav-item dropdown" id="gearDropdown" style="white-space: nowrap">
-                    <a title='{{ i18n "options_menu" }}' href="" class="nav-link" data-toggle="dropdown" aria-label="Tools" aria-haspopup="true" aria-expanded="false">
-                        {{ partial "icon.html" "gear" }}
-                    </a>
-
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="gearDropdown">
-                        <a lang="en" href="/" class="dropdown-item {{ if eq $home.Lang "en" }}active{{ end }}" onclick="createCookie('nf_lang', 'en'); return true;">English</a>
-                        <a lang="zh" href="/zh" class="dropdown-item {{ if eq $home.Lang "zh" }}active{{ end }}" onclick="createCookie('nf_lang', 'zh'); return true;">中文</a>
-
-                        <div class="dropdown-divider"></div>
-
-                        <a class="dropdown-item" id="light-theme-item" href="" onclick="setActiveStyleSheet('light');return false;">{{ i18n "light_theme" }}</a>
-                        <a class="dropdown-item" id="dark-theme-item" href="" onclick="setActiveStyleSheet('dark');return false;">{{ i18n "dark_theme" }}</a>
-
-                        {{ if not .Site.Data.args.archive }}
-                            <div class="dropdown-divider"></div>
-
-                            <a class="dropdown-item" href="https://github.com/istio/istio.io/issues/new?title=Issue%20with%20{{ .Path}}">{{ i18n "report_site_bugs" }}</a>
-
-                            {{ if not .Params.generator }}
-                                <a class="dropdown-item" href="https://github.com/istio/istio.io/edit/{{ .Site.Data.args.doc_branch_name }}/content/{{ .Path }}">{{ i18n "edit_on_github" }}</a>
-                            {{ end }}
-                        {{ end }}
-
-                    </div>
-                </li>
-
-                <li class="nav-item">
-                    <a id="search_show" class="nav-link" href="" title='{{ i18n "search" }}' aria-label="Search">{{ partial "icon.html" "magnifier" }}</a>
-                </li>
             </ul>
 
-            <form name="cse" id="search_form" class="form-inline mr-sm-2" role="search">
-                {{ if .Site.Data.args.preliminary }}
-                    <input type="hidden" name="cx" value="{{ .Site.Data.args.preliminary_search_engine_id }}" />
-                {{ else if .Site.Data.args.archive }}
-                    <input type="hidden" name="cx" value="{{ .Site.Data.args.archive_search_engine_id }}" />
-                {{ else }}
-                    <input type="hidden" name="cx" value="{{ .Site.Data.args.main_search_engine_id }}" />
-                {{ end }}
-                <input type="hidden" name="ie" value="utf-8" />
-                <input type="hidden" name="hl" value="en" />
-                <input type="hidden" id="search_page_url" value="{{ .Site.BaseURL }}/search.html" />
-                <input id="search_textbox" class="form-control" name="q" type="text" aria-label="Search this site"/>
-                <button id="search_close" type="reset" aria-label="Cancel Search">{{ partial "icon.html" "cancel-x" }}</button>
-            </form>
+
         </div>
     </nav>
 </header>

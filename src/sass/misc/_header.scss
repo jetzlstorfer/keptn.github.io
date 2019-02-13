@@ -1,7 +1,7 @@
 header {
     .navbar {
-        background-image: linear-gradient(to right, $mainBrandColor, $secondBrandColor);
-        box-shadow: 0 0 2px 2px $headerLightShadowColor, 0 2px 4px 2px $headerDarkShadowColor;
+        background-image: linear-gradient(to right, #ffffff,#ffffff);
+        box-shadow: 0 1px 15px rgba(50,50,93,.2);
         padding-top: .2em;
         padding-bottom: .2em;
 
